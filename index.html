@@ -2,16 +2,85 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Portafolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexander Capitan | Portafolio</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <h1>Hola, soy Alexander</h1>
-    <p>Estudiante / Desarrollador Web</p>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <nav class="nav">
+            <h1 class="logo">Alexander</h1>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <button id="btn">Haz clic</button>
+    <!-- ===== HERO ===== -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2>Hola, soy <span>Alexander Capitan</span></h2>
+            <p>Desarrollador Web | Sistemas | Bases de Datos</p>
+            <a href="#proyectos" class="btn">Ver proyectos</a>
+        </div>
+    </section>
 
+    <!-- ===== SOBRE MI ===== -->
+    <section id="sobre-mi" class="about">
+        <h2>Sobre mí</h2>
+        <p>
+            Soy estudiante y desarrollador enfocado en sistemas web, bases de datos
+            y proyectos tecnológicos. Tengo experiencia en PHP, MySQL, HTML, CSS,
+            JavaScript y Git/GitHub.
+        </p>
+    </section>
+
+    <!-- ===== PROYECTOS ===== -->
+    <section id="proyectos" class="projects">
+        <h2>Proyectos</h2>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Sistema Web Pastelería</h3>
+                <p>Sistema MVC en PHP con carrito, pagos y administración.</p>
+                <a href="https://github.com/MrCale26/Sistema-web-Pasteleria" target="_blank">
+                    Ver en GitHub
+                </a>
+            </div>
+
+            <div class="project-card">
+                <h3>Portafolio Web</h3>
+                <p>Portafolio personal con HTML, CSS y JavaScript.</p>
+                <a href="https://github.com/MrCale26/mi-portafolio" target="_blank">
+                    Ver en GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section id="contacto" class="contact">
+        <h2>Contacto</h2>
+        <p>Email: <strong>calec2603@gmail.com</strong></p>
+        <p>GitHub: <a href="https://github.com/MrCale26" target="_blank">github.com/MrCale26</a></p>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <p>© 2026 Alexander Capitan. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JS -->
     <script src="js/main.js"></script>
 </body>
 </html>
