@@ -28,11 +28,15 @@ projectSliders.forEach(slider => {
     const image = slider.querySelector(".project-slider-image");
     const caption = slider.querySelector(".project-slider-caption");
     const dots = Array.from(slider.querySelectorAll(".project-slider-dot"));
+    const prevButton = slider.querySelector(".project-slider-prev");
+    const nextButton = slider.querySelector(".project-slider-next");
 
     if (!image || !caption || !dots.length) return;
 
     let currentIndex = dots.findIndex(dot => dot.getAttribute("aria-pressed") === "true");
     if (currentIndex < 0) currentIndex = 0;
+    let autoplayId = null;
+    let resumeTimeoutId = null;
 
     const setSlide = index => {
         const dot = dots[index];
@@ -56,16 +60,64 @@ projectSliders.forEach(slider => {
 
     dots.forEach((dot, index) => {
         dot.addEventListener("click", () => {
+            pauseAutoplayTemporarily();
             setSlide(index);
         });
     });
 
-    if (slider.dataset.autoplay === "true" && dots.length > 1) {
-        window.setInterval(() => {
+    const goToPrevious = () => {
+        pauseAutoplayTemporarily();
+        const previousIndex = (currentIndex - 1 + dots.length) % dots.length;
+        setSlide(previousIndex);
+    };
+
+    const goToNext = () => {
+        pauseAutoplayTemporarily();
+        const nextIndex = (currentIndex + 1) % dots.length;
+        setSlide(nextIndex);
+    };
+
+    if (prevButton) {
+        prevButton.addEventListener("click", goToPrevious);
+    }
+
+    if (nextButton) {
+        nextButton.addEventListener("click", goToNext);
+    }
+
+    const startAutoplay = () => {
+        if (slider.dataset.autoplay !== "true" || dots.length <= 1 || autoplayId) return;
+
+        autoplayId = window.setInterval(() => {
             const nextIndex = (currentIndex + 1) % dots.length;
             setSlide(nextIndex);
         }, 3200);
-    }
+    };
+
+    const stopAutoplay = () => {
+        if (autoplayId) {
+            window.clearInterval(autoplayId);
+            autoplayId = null;
+        }
+    };
+
+    const pauseAutoplayTemporarily = () => {
+        stopAutoplay();
+
+        if (resumeTimeoutId) {
+            window.clearTimeout(resumeTimeoutId);
+        }
+
+        resumeTimeoutId = window.setTimeout(() => {
+            startAutoplay();
+        }, 5000);
+    };
+
+    slider.addEventListener("mouseenter", stopAutoplay);
+    slider.addEventListener("mouseleave", startAutoplay);
+    slider.addEventListener("touchstart", pauseAutoplayTemporarily, { passive: true });
+
+    startAutoplay();
 });
 
 if (menuToggle && navLinks) {
