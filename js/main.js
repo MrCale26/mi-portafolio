@@ -3,6 +3,7 @@ const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 const nav = document.querySelector("nav");
 const navItems = navLinks ? navLinks.querySelectorAll("a") : [];
+const projectSliders = document.querySelectorAll(".project-slider");
 
 revealElements.forEach(element => {
     element.classList.add("opacity-0", "translate-y-8", "transition-all", "duration-700");
@@ -22,6 +23,50 @@ const revealObserver = new IntersectionObserver(
 );
 
 revealElements.forEach(element => revealObserver.observe(element));
+
+projectSliders.forEach(slider => {
+    const image = slider.querySelector(".project-slider-image");
+    const caption = slider.querySelector(".project-slider-caption");
+    const dots = Array.from(slider.querySelectorAll(".project-slider-dot"));
+
+    if (!image || !caption || !dots.length) return;
+
+    let currentIndex = dots.findIndex(dot => dot.getAttribute("aria-pressed") === "true");
+    if (currentIndex < 0) currentIndex = 0;
+
+    const setSlide = index => {
+        const dot = dots[index];
+        if (!dot) return;
+
+        image.src = dot.dataset.image;
+        image.alt = dot.dataset.alt;
+        caption.textContent = dot.dataset.caption;
+
+        dots.forEach((item, itemIndex) => {
+            const isActive = itemIndex === index;
+            item.setAttribute("aria-pressed", String(isActive));
+            item.classList.toggle("w-8", isActive);
+            item.classList.toggle("bg-emerald-400", isActive);
+            item.classList.toggle("w-2.5", !isActive);
+            item.classList.toggle("bg-white/25", !isActive);
+        });
+
+        currentIndex = index;
+    };
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            setSlide(index);
+        });
+    });
+
+    if (slider.dataset.autoplay === "true" && dots.length > 1) {
+        window.setInterval(() => {
+            const nextIndex = (currentIndex + 1) % dots.length;
+            setSlide(nextIndex);
+        }, 3200);
+    }
+});
 
 if (menuToggle && navLinks) {
     const isDesktop = () => window.innerWidth >= 768;
