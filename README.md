@@ -1,67 +1,97 @@
-# 🌐 Mi Portafolio Web
+# Mi Portafolio Web
 
-Portafolio personal desarrollado con **HTML, CSS y JavaScript**, publicado mediante **GitHub Pages**.  
-En este sitio presento mis proyectos, habilidades y datos de contacto como desarrollador.
+Portafolio personal desarrollado para presentar mi perfil, stack y proyectos como desarrollador. El sitio está construido con HTML, JavaScript y Tailwind CSS compilado localmente.
 
----
+Demo en vivo: [mrcale26.github.io/mi-portafolio](https://mrcale26.github.io/mi-portafolio/)
 
-## 🚀 Demo en vivo
-🔗 https://mrcale26.github.io/mi-portafolio/
+## Vista general
 
----
+Este proyecto funciona como mi carta de presentación en línea. El objetivo es mostrar una interfaz limpia, una estructura clara y una base técnica sencilla de mantener.
 
-## 🧑‍💻 Sobre mí
-Soy estudiante y desarrollador enfocado en el desarrollo de **sistemas web**, **bases de datos** y **soluciones tecnológicas**.  
-Tengo experiencia trabajando con:
+Incluye:
 
-- HTML, CSS y JavaScript  
-- PHP (arquitectura MVC)  
-- MySQL  
-- Git y GitHub  
-- XAMPP  
+- Presentación personal y enfoque profesional
+- Sección de tecnologías principales
+- Proyectos destacados con enlaces a GitHub
+- Información de contacto
+- Diseño responsive para desktop y mobile
 
----
+## Tecnologías
 
-## 🛠️ Tecnologías usadas
-- **HTML5** – Estructura del sitio  
-- **CSS3** – Diseño moderno y responsive  
-- **JavaScript** – Interactividad y animaciones  
-- **GitHub Pages** – Publicación del portafolio  
+- HTML5
+- JavaScript
+- Tailwind CSS v4
+- Google Fonts
+- GitHub Pages
 
----
+## Estructura del proyecto
 
-## 📂 Estructura del proyecto
-
+```text
 mi-portafolio/
-│── index.html
-│
-├── css/
-│ └── style.css
-│
-├── js/
-│ └── main.js
-│
-└── img/
+|-- index.html
+|-- README.md
+|-- package.json
+|-- css/
+|   `-- style.css
+|-- js/
+|   `-- main.js
+`-- src/
+    `-- input.css
+```
 
+## Instalación y uso local
 
----
+1. Clona el repositorio:
 
-## 📌 Proyectos destacados
-- 🧁 **Sistema Web Pastelería**  
-  Sistema web desarrollado en PHP usando MVC, con carrito de compras, gestión de pedidos, pagos y panel administrativo.  
-  🔗 https://github.com/MrCale26/Sistema-web-Pasteleria
+```bash
+git clone https://github.com/MrCale26/mi-portafolio.git
+cd mi-portafolio
+```
 
-- 🌐 **Portafolio Web**  
-  Portafolio personal creado con HTML, CSS y JavaScript.  
-  🔗 https://github.com/MrCale26/mi-portafolio
+2. Instala dependencias:
 
----
+```bash
+npm install
+```
 
-## 📬 Contacto
-- 📧 Email: **calec2603@gmail.com**  
-- 🐙 GitHub: https://github.com/MrCale26  
+3. Compila Tailwind:
 
----
+```bash
+npm run build:css
+```
 
-## 📄 Licencia
-Este proyecto es de uso personal y educativo.
+4. Si vas a trabajar en estilos, usa el modo watch:
+
+```bash
+npm run watch:css
+```
+
+Luego puedes abrir `index.html` en el navegador.
+
+## Scripts disponibles
+
+- `npm run build:css`: genera `css/style.css`
+- `npm run watch:css`: recompila estilos automáticamente al detectar cambios
+
+## Proyectos destacados
+
+### Sistema Web Pastelería
+
+Sistema MVC en PHP con carrito de compras, pagos y panel de administración para gestionar productos y pedidos.
+
+Repositorio: [MrCale26/Sistema-web-Pasteleria](https://github.com/MrCale26/Sistema-web-Pasteleria)
+
+### Portafolio Web
+
+Portafolio personal desarrollado para mostrar perfil, stack y trabajos recientes.
+
+Repositorio: [MrCale26/mi-portafolio](https://github.com/MrCale26/mi-portafolio)
+
+## Contacto
+
+- Email: `calec2603@gmail.com`
+- GitHub: [github.com/MrCale26](https://github.com/MrCale26)
+
+## Licencia
+
+Proyecto de uso personal y educativo.

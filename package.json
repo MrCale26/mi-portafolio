@@ -1,0 +1,17 @@
+{
+  "name": "miportafolio",
+  "version": "1.0.0",
+  "description": "Portafolio personal desarrollado con **HTML, CSS y JavaScript**, publicado mediante **GitHub Pages**.  \r En este sitio presento mis proyectos, habilidades y datos de contacto como desarrollador.",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./css/style.css --minify",
+    "watch:css": "npx @tailwindcss/cli -i ./src/input.css -o ./css/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "tailwindcss": "^4.2.2"
+  }
+}
